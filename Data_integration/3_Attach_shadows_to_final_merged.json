@@ -1,0 +1,21 @@
+{
+    "pipeline": [
+        "merged_colored_3dm_33_400_5816_1_be.las",
+        {
+            "type": "filters.colorization",
+            "dimensions":"Red:1:1.0, Green:2:1.0, Blue:3:1.0",
+            "raster": "colored_3dm_33_400_5816_1_be_#_RASTER_Z_2022-08-16_11h25_14_680.tif"
+        },
+        {
+            "type": "filters.range",
+            "limits": "Classification[1:20]"
+        },
+        {
+            "type": "writers.las",
+            "compression": "false",
+            "minor_version": "2",
+            "dataformat_id": "3",
+            "filename":"final_shadow_attached_colored_3dm_33_400_5816_1_be.las"
+        }
+    ]
+}

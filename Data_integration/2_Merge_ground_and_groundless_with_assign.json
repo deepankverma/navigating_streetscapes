@@ -1,0 +1,33 @@
+{
+    "pipeline": [
+        "ground_removed_colored_3dm_33_400_5816_1_be.las",
+        "new_road_attached_colored_3dm_33_400_5816_1_be.las",
+
+        { "type": "filters.merge" 
+
+        },
+
+
+        {
+            "type": "filters.assign",
+            "value" :
+            [
+                "Classification = 13 WHERE RED == 1",
+                "Classification = 14 WHERE RED == 2",
+                "Classification = 15 WHERE RED == 3",
+                "Classification = 16 WHERE RED == 4",
+                "Classification = 17 WHERE RED == 5",
+                "Classification = 18 WHERE RED == 6"
+            ]
+
+        },
+
+        {
+            "type": "writers.las",
+            "compression": "false",
+            "minor_version": "2",
+            "dataformat_id": "3",
+            "filename":"merged_colored_3dm_33_400_5816_1_be.las"
+        }
+    ]
+}

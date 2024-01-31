@@ -1,0 +1,28 @@
+{
+    "pipeline": [
+        "final_shadow_attached_colored_3dm_33_400_5816_1_be.las",
+
+
+        {
+            "type": "filters.assign",
+            "value" :
+            [
+                "UserData = 1 WHERE RED == 0",
+                "UserData = 1 WHERE RED == 1",
+                "UserData = 2 WHERE RED == 2",
+                "UserData = 3 WHERE RED == 3",
+                "UserData = 4 WHERE RED == 4",
+                "UserData = 5 WHERE RED == 5"
+            ]
+
+        },
+
+        {
+            "type": "writers.las",
+            "compression": "false",
+            "minor_version": "2",
+            "dataformat_id": "3",
+            "filename":"final_shadow_ass_attached_colored_3dm_33_400_5816_1_be.las"
+        }
+    ]
+}

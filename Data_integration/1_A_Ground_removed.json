@@ -1,0 +1,41 @@
+{
+    "pipeline": [
+        "colored_3dm_33_400_5816_1_be_#.las",
+
+        {
+            "type": "filters.range",
+            "limits": "Classification[1:1], Classification[3:6]"
+            
+        },
+
+        {
+            "type": "filters.assign",
+            "assignment": "RED[:] = 0"
+
+       
+        },
+
+        {
+            "type": "filters.assign",
+            "assignment": "GREEN[:] = 0"
+
+       
+        },
+
+        {
+            "type": "filters.assign",
+            "assignment": "BLUE[:] = 0"
+
+       
+        },
+
+
+        {
+            "type": "writers.las",
+            "compression": "false",
+            "minor_version": "2",
+            "dataformat_id": "3",
+            "filename":"ground_removed_colored_3dm_33_400_5816_1_be.las"
+        }
+    ]
+}
