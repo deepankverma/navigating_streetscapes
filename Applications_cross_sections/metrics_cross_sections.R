@@ -11,7 +11,9 @@ library(DescTools)
 
 
 #######load shapefile############################################
-shape <- shapefile("C:\\Users\\isu_v\\Desktop\\Berlin_data_for_other_pc\\attached_tile_m_10_final_cross_pair_berlin.shp")
+
+## Shapefile includes a pair of points, which define the extent of all the cross-sections.
+shape <- shapefile(" YOUR_SHAPEFILE_LOCATION") 
 head(shape)
 shape[is.na(shape$location_1)] <- 0
 
@@ -21,8 +23,9 @@ shapenew = data.frame(shape)
 count_las = 1
 iteration_count = 0
 
+## Download the point cloud tiles and set the path
 
-for (each in Sys.glob(file.path("C:\\Users\\isu_v\\Downloads\\LAS_downloads\\Nord\\4","*.las"))) {
+for (each in Sys.glob(file.path("YOUR_PATH\\Nord\\4","*.las"))) {
 
   print(each)
   
@@ -654,7 +657,7 @@ for (each in Sys.glob(file.path("C:\\Users\\isu_v\\Downloads\\LAS_downloads\\Nor
   
   } 
   
-  write.csv(final_dataframe,file=paste0("C:\\Users\\isu_v\\Desktop\\Final_outputs\\Nord\\dataframe_outputs\\",lasfile,".csv"), row.names = FALSE)
+  write.csv(final_dataframe,file=paste0("YOUR_LOCATION\\Nord\\dataframe_outputs\\",lasfile,".csv"), row.names = FALSE)
   
   count_las = count_las + 1
   
