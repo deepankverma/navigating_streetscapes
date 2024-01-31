@@ -22,6 +22,13 @@ The research utilizes a range of scripts and algorithms, including LAStools, lid
 
 ## Methodology
 
+<p align="center">
+  <img src="source/methodology_github.jpg" alt="Overall Methodology" style="width:75%;">
+  <br>
+  <em>Overall methodology for dataset creation</em>
+</p>
+
+
 ### Primary Classification
 In this study, the LASTools software suite was employed for point cloud classification. LASTools consists of a set of efficient multicore command line tools designed for processing Lidar datasets. Within this suite, tools such as lasground, lasheight, and lasclassify were utilized to classify the dataset. The study area encompasses 1,060 tiles of the Lidar dataset, which were processed accordingly to conduct primary classification into categories such as ground, trees, buildings, and unassigned points. Notably, water bodies were not identified during the process, as the classifier does not differentiate between open ground and water due to their similar point properties. Consequently, water bodies were categorized as part of the ground class.
 
@@ -35,9 +42,22 @@ In this study, the ArcGIS-based Solar Radiation pattern generation tool is used 
 
 Following data compilation, each point in the Lidar dataset was categorized into (a) one of nine categories, including five street constituents, ground, trees, buildings, and unassigned, and (b) one of five shadow classes. Similar to the tile-based format provided by Geoportal, the fully categorized dataset is also accessible from the HuggingFace database.
 
+<p align="center">
+  <img src="source/Final_product.jpg" alt="Final data product" style="width:100%;">
+  <br>
+  <em>Final data product</em>
+</p>
+
+
 ## Application of the Data 
 
 The dataset is utilized to create 0.5 Million cross-sections in the entire city of Berlin. The process requires an additional dataset to guide liDR tools to generate cross-sections gradually covering the entire city. The R-based code, along with the required dataset and tools, is provided in the folder.
+
+<p align="center">
+  <img src="source/cross-section_github.jpg" alt="Geoprocessing and data compilation to create cross-sections" style="width:75%;">
+  <br>
+  <em>Geoprocessing and data compilation to create cross-sections</em>
+</p>
 
 
 ## License
