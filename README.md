@@ -1,9 +1,9 @@
 # CITYLID: A large-scale categorized aerial Lidar dataset for street-level research
 
 ## Overview
-This repository is dedicated to providing categorized aerial Lidar datasets along with the methodology for data preparation. 
+This repository provides a categorized aerial Lidar dataset, CITYLID, along with the methodology for data preparation. 
 The repository has two main parts. First, It explains the process for raw point cloud categorization. The process includes the fusion of other datasets, such as 2D street shapefiles and shadow maps. It provides supporting codes and scripts to replicate the steps leading to the final data product. Secondly, It provides example scripts to reproduce a study focused on [generating city-wide street cross-sections](https://doi.org/10.1016/j.scs.2023.104673), which 
-used the categorized point cloud dataset generated in the repository.
+used the CITYLID dataset.
 
 
 ## Getting Started
@@ -27,7 +27,7 @@ The research utilizes a range of scripts and algorithms, including [LAStools](ht
 
 
 ### Primary Classification
-In this study, the LASTools software suite was employed for point cloud classification. LASTools consists of a set of efficient multicore command line tools designed for processing Lidar datasets. Within this suite, tools such as *lasground*, *lasheight*, and *lasclassify* were utilized to classify the dataset. The raw dataset is divided into 1,060 tiles, and each of them is classified into categories such as *ground*, *trees*, *buildings*, and *unassigned* points. Notably, water bodies were not identified during the process, as the classifier does not differentiate between open ground and water due to their similar point properties. Consequently, water bodies were categorized as part of the *ground* class.
+The LASTools software suite was employed for point cloud classification. LASTools consists of a set of efficient multicore command line tools designed for processing Lidar datasets. Within this suite, tools such as *lasground*, *lasheight*, and *lasclassify* were utilized to classify the dataset. The raw dataset is divided into 1,060 tiles, and each of them is classified into categories such as *ground*, *trees*, *buildings*, and *unassigned* points. Notably, water bodies were not identified during the process, as the classifier does not differentiate between open ground and water due to their similar point properties. Consequently, water bodies were categorized as part of the *ground* class.
 
 ### Integration of Street Features to the Primary Classification
 Due to the distinct data structures of street polygons (2D) and Lidar-based (3D) points, direct integration is not feasible. To address this, we employed the Point Data Abstraction Library (PDAL). PDAL offers a range of filters designed for processing Lidar point clouds. We converted vector-based shapefiles into RGB raster images and utilized *colorize* and *range* filters. These filters merge the raster dataset with the point cloud, enabling the points to adopt the RGB values of the overlapped raster. Starter scripts for automating this integration process are provided in [Data_integration](Data_integration).
@@ -48,7 +48,7 @@ Following data compilation, each point in the Lidar dataset was categorized into
 
 ## Application of the Data (Cross-section Generation)
 
-The dataset is utilized to create 0.5 Million cross-sections in the entire city of Berlin. The process requires an additional dataset to guide liDR tools to generate cross-sections gradually covering the entire city. The R-based code, along with the required dataset and tools, is provided in [Applications_cross_sections](Applications_cross_sections).
+The dataset is utilized to create 0.5 Million cross-sections in the entire city of Berlin. The process requires an additional dataset (shapefiles) to guide liDR tools to generate cross-sections gradually covering the entire city. The R-based code, along with the required dataset and tools, is provided in [Applications_cross_sections](Applications_cross_sections).
 
 <p align="center">
   <img src="source/cross-section_github.jpg" alt="Geoprocessing and data compilation to create cross-sections" style="width:75%;">
