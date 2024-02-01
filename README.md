@@ -59,7 +59,7 @@ The dataset is utilized to create 0.5 Million cross-sections in the entire city 
 
 ## License
 
-The Berlin Geoportal provides the dataset using a [DL-DE->BY-2.0](https://www.govdata.de/dl-de/by-2-0) License.
+The dataset generated through the process explained in this repository is a derivative work based on "[Airborne Laserscanning (ALS) Primäre 3D Laserscan-Daten](https://fbinter.stadt-berlin.de/fb/feed/senstadt/a_als/0)", which is licensed under [DL-DE->BY-2.0](https://www.govdata.de/dl-de/by-2-0). This derivative work is released under the terms of the MIT License.
 
 ## To cite
 
